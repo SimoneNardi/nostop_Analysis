@@ -17,15 +17,13 @@ endif()
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
-  geometry_msgs
-  base_math
-  nostop_simulator
+  nav_msgs
 )
 
 catkin_package(
   INCLUDE_DIRS include/${PROJECT_NAME}/
   LIBRARIES ${PROJECT_NAME}
-  DEPENDS base_math nostop_simulator gazebo_ros
+  #DEPENDS
 )
 
 include_directories(include/${PROJECT_NAME}/ ${catkin_INCLUDE_DIRS})

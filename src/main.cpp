@@ -1,3 +1,5 @@
+#include "Analysis.h"
+
 #include "ros/ros.h"
 
 #include <set>
@@ -13,7 +15,9 @@ int main(int argc, char **argv)
 	
 	ROS_INFO("Analysis is running.");
 	
-	
+	std::shared_ptr<Analysis> l_analysis = std::make_shared<Analysis>();
+
+	ros::spin();
 	
 	return 0;
 }
