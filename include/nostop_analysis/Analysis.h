@@ -2,6 +2,7 @@
 #define ANALYSIS_H
 
 #include <ros/ros.h>
+#include "nav_msgs/OccupancyGrid.h"
 
 class AnalysisElement;
 
@@ -20,9 +21,11 @@ public:
   Analysis();
   ~Analysis();
   
-  void NeighboursUpdate(const nav_msgs::OccupancyGrid::ConstPtr msg);
-  void MonitorUpdate(const nav_msgs::OccupancyGrid::ConstPtr msg);
-  void EnergyUpdate(const nav_msgs::OccupancyGrid::ConstPtr msg);
+  void Initialize();
+  
+  void NeighboursUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
+  void MonitorUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
+  void EnergyUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
  
 };
 

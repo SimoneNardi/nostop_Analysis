@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	ROS_INFO("Analysis is running.");
 	
 	std::shared_ptr<Analysis> l_analysis = std::make_shared<Analysis>();
+	l_analysis->Initialize();
 
 	ros::spin();
 	

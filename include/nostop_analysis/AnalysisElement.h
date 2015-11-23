@@ -3,7 +3,7 @@
 
 #include <ros/ros.h>
 
-class AnalysisElement;
+class AnalysisElement
 {
   int m_time;
   double m_monitor;

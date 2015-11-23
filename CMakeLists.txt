@@ -31,10 +31,12 @@ link_directories(${catkin_LIBRARY_DIRS})
 
 set(analysis_SOURCES
         src/Analysis.cpp
+        src/AnalysisElement.cpp
+        src/main.cpp
 )
 
 add_executable(Analysis ${analysis_SOURCES})
-target_link_libraries(Analysis ${catkin_LIBRARIES} nostop_simulator)
+target_link_libraries(Analysis ${catkin_LIBRARIES})
 add_dependencies(Analysis ${PROJECT_NAME}_gencpp)
 
 install(TARGETS Analysis
