@@ -18,12 +18,13 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   nav_msgs
+  base_math
 )
 
 catkin_package(
   INCLUDE_DIRS include/${PROJECT_NAME}/
   LIBRARIES ${PROJECT_NAME}
-  #DEPENDS
+  DEPENDS base_math
 )
 
 include_directories(include/${PROJECT_NAME}/ ${catkin_INCLUDE_DIRS})
@@ -33,10 +34,11 @@ set(analysis_SOURCES
         src/Analysis.cpp
         src/AnalysisElement.cpp
         src/main.cpp
+        src/LatticeCache.cpp
 )
 
 add_executable(Analysis ${analysis_SOURCES})
-target_link_libraries(Analysis ${catkin_LIBRARIES})
+target_link_libraries(Analysis ${catkin_LIBRARIES} base_math)
 add_dependencies(Analysis ${PROJECT_NAME}_gencpp)
 
 install(TARGETS Analysis

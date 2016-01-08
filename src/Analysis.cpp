@@ -1,5 +1,6 @@
 #include "Analysis.h"
 #include "AnalysisElement.h"
+#include "LatticeCache.h"
 
 #include "nav_msgs/OccupancyGrid.h"
 
@@ -30,36 +31,21 @@ void Analysis::Initialize()
 
 ///////////////////////////////
 void Analysis::EnergyUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg)
-{  
-  m_lattice.resize(msg->data.size());
+{ 
   ros::Time l_time = msg->info.map_load_time;
-  for(size_t i = 0; i < msg->data.size(); ++i)
-  {
-    int8_t l_value = msg->data[i];
-    m_lattice[i].setEnergy(l_value);
-  }
+  m_lattice->updateEnergy(msg->header.seq, msg->data);
 }
 
 ///////////////////////////////
 void Analysis::MonitorUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg)
 {
-  m_lattice.resize(msg->data.size());
   ros::Time l_time = msg->info.map_load_time;
-  for(size_t i = 0; i < msg->data.size(); ++i)
-  {
-    int8_t l_value = msg->data[i];
-    m_lattice[i].setMonitor(l_value);
-  }
+  m_lattice->updateMonitor(msg->header.seq, msg->data);
 }
 
 ///////////////////////////////
 void Analysis::NeighboursUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg)
 {
-  m_lattice.resize(msg->data.size());
   ros::Time l_time = msg->info.map_load_time;
-  for(size_t i = 0; i < msg->data.size(); ++i)
-  {
-    int8_t l_value = msg->data[i];
-    m_lattice[i].setNeighbours(l_value);
-  }
+  m_lattice->updateNeighbours(msg->header.seq, msg->data);
 }

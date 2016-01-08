@@ -4,7 +4,10 @@
 #include <ros/ros.h>
 #include "nav_msgs/OccupancyGrid.h"
 
+#include <sstream>
+
 class AnalysisElement;
+class LatticeCache;
 
 class Analysis
 {
@@ -15,7 +18,7 @@ protected:
   ros::Subscriber m_monitor_listner;
   ros::Subscriber m_neighbours_listner;
     
-  std::vector<AnalysisElement> m_lattice;
+  std::shared_ptr<LatticeCache> m_lattice;
   
 public:
   Analysis();
@@ -26,7 +29,6 @@ public:
   void NeighboursUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
   void MonitorUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
   void EnergyUpdate(const nav_msgs::OccupancyGrid::ConstPtr &msg);
- 
 };
 
 #endif
