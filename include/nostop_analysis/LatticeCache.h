@@ -15,7 +15,7 @@ extern std::ofstream g_outFile;
 class Lattice
 {
 protected:
-    Mutex1 m_mutex;
+    Robotics::GameTheory::Mutex1 m_mutex;
     
     int m_time;
     int m_updated;
@@ -44,10 +44,11 @@ protected:
 class LatticeCache
 {
 protected:
-  Mutex1 m_mutex;
+  Robotics::GameTheory::Mutex1 m_mutex;
   std::vector< std::shared_ptr<Lattice> > m_cache;
 public:
-  LatticeCache(int size_of_cache = 5);
+  LatticeCache(int size_of_cache = 15);
+  ~LatticeCache();
   
   void updateEnergy(int time, std::vector<int8_t> const& data);
   void updateMonitor(int time, std::vector<int8_t> const& data );

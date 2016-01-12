@@ -7,8 +7,9 @@
 ///////////////////////////////
 Analysis::Analysis() 
 : m_node()
-, m_lattice()
+, m_lattice(nullptr)
 {
+  m_lattice = std::make_shared<LatticeCache>();
 }
  
 ///////////////////////////////
