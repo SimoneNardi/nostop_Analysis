@@ -37,11 +37,11 @@ set(analysis_SOURCES
         src/LatticeCache.cpp
 )
 
-add_executable(Analysis ${analysis_SOURCES})
-target_link_libraries(Analysis ${catkin_LIBRARIES} base_math)
-add_dependencies(Analysis ${PROJECT_NAME}_gencpp)
+add_executable(${PROJECT_NAME}_node ${analysis_SOURCES})
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} base_math)
+add_dependencies(${PROJECT_NAME}_node ${PROJECT_NAME}_gencpp)
 
-install(TARGETS Analysis
+install(TARGETS ${PROJECT_NAME}_node
  EXPORT nostop_analysis
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )

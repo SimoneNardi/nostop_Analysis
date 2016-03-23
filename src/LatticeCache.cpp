@@ -131,7 +131,11 @@ void Lattice::computePotential()
   
   g_outFile << m_time << " " << m_potential << std::endl;
   g_outFile.flush();
+ 
+  std::cout << m_time << " " << m_potential <<std::endl;
 }
+  
+  
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -152,7 +156,7 @@ LatticeCache::LatticeCache(int size_of_cache)
     m_cache.push_back(l_lattice);
   }
     
-  g_outFile.open("potential.txt");//, std::ios_base::app);
+  g_outFile.open("/home/simone/catkin_ws/src/nostop/potential.txt");//, std::ios_base::app);
   if( g_outFile.is_open() )
     ROS_INFO("Potential File Created!");
   else
