@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
   
-  <node pkg="nostop_analysis" type="nostop_analysis_node" name="$(anon nostop_analysis)" required="true" output="screen"/>
+  <node pkg="nostop_analysis" type="nostop_analysis_node" name="Analysis" required="true" output="screen"/>
 
 </launch>
