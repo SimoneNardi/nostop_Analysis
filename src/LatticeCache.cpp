@@ -131,8 +131,10 @@ void Lattice::computePotential()
   
   g_outFile << m_time << " " << m_potential << std::endl;
   g_outFile.flush();
- 
+
+#ifdef _DEBUG_PRINT
   std::cout << m_time << " " << m_potential <<std::endl;
+#endif
 }
   
   
